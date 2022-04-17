@@ -47,3 +47,7 @@ li {
   position: relative;
   top: -35px;
 }
+
+a {
+  text-align: center;
+}
