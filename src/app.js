@@ -22,11 +22,29 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function search(event) {
+function searchCity(city) {
+  let apiKey = "797985702c657081e8e9fa4eed28f05d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+}
+
+function showWeather(response) {
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
+}
+
+function handleSubmit(event) {
   event.preventDefault();
-  let cityElement = document.querySelector("#city");
-  let citySearch = document.querySelector("#city-search");
-  cityElement.innerHTML = citySearch.value;
+  let city = document.querySelector("#city-input").value;
+  searchCity(city);
 }
 
 function convertToFaren(event) {
@@ -35,14 +53,17 @@ function convertToFaren(event) {
   let temp = temperatureElement.innerHTML;
   temperatureElement.innerHTML = Math.round((temp * 9) / 5) + 32;
 }
+
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 
 let searchForm = document.querySelector("#search-form");
 
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", handleSubmit);
 
 dateElement.innerHTML = formatDate(currentTime);
 
 let faren = document.querySelector("#faren");
 faren.addEventListener("click", convertToFaren);
+
+searchCity("New York");

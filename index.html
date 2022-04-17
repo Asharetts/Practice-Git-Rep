@@ -12,42 +12,44 @@
     />
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
-    
   </head>
   <body>
     <div class="container">
       <div class="weather-app">
-      <form class="search-form" id="search-form">
-        <input type="search" placeholder="Type a City.." id="city-search"/>
-        <input type="submit" value="Submit" class="btn btn-primary"/>
-        
-      </form>
-      <h1 id="city">Las Vegas,NV</h1>
-      <ul>
-        <li id="date"></li>
-        <li>Windy</li>
-      </ul>
-
-      <div class="row">
-        <div class="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="sunny"
-            class="sun-icon"
-          />
-          <span class="temperature" id="temperature">
-          19</span><span class="units" id="faren">°C |<a href="#">°F</a></span>
-        </div>
-
-        <div class="col-6">
+        <form class="search-form" id="search-form">
+          <input type="search" placeholder="Type a City.." id="city-search" />
+          <input type="submit" value="Submit" class="btn btn-primary" />
+        </form>
+        <h1 id="city">Las Vegas,NV</h1>
         <ul>
-          <li>Percipitation: 0%</li>
-          <li>Humidity: 20%</li>
-          <li>Wind: 3MPH</li>
+          <li id="date"></li>
+          <li>Windy</li>
         </ul>
-      </div>
+
+        <div class="row">
+          <div class="col-6">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="sunny"
+              class="sun-icon"
+            />
+            <span class="temperature" id="temperature"> 19</span
+            ><span class="units" id="faren">
+              <a href="#">°C</a> |<a href="#">°F</a></span
+            >
+          </div>
+        </div>
+        <div class="col-6">
+          <ul>
+            <li>Percipitation: 0%</li>
+            <li>Humidity: 20%</li>
+            <li>Wind: 3MPH</li>
+          </ul>
+        </div>
       </div>
     </div>
+    <a href="https://github.com/Asharetts/Practice-Git-Rep.git">Open-Code</a>
+    by Amanda Sharetts
     <script src="src/app.js"></script>
   </body>
 </html>
